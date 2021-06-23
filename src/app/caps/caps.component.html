@@ -1,9 +1,3 @@
-<h2>{{cap.name | uppercase}} Details</h2>
-<div><span>id: </span>{{cap.id}}</div>
-<div>
-  <label for="name">Cap name: </label>
-  <input id="name" [(ngModel)]="cap.name" placeholder="name">
-</div>
 <h2>My Caps</h2>
 <ul class="caps">
   <li *ngFor="let cap of caps" [class.selected]="cap === selectedCap" (click)="onSelect(cap)">
@@ -11,11 +5,4 @@
   </li>
 </ul>
 
-<div *ngIf="selectedCap">
-  <h2>{{selectedCap.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedCap.id}}</div>
-  <div>
-    <label for="cap-name">Cap name: </label>
-    <input id="cap-name" [(ngModel)]="selectedCap.name" placeholder="name">
-  </div>
-</div>
+<app-cap-detail [cap]="selectedCap"></app-cap-detail>
