@@ -16,4 +16,10 @@ export class CapService {
     this.messageService.add('CapService: fetched caps');
     return caps;
   }
+
+  getCap(id: number): Observable<Cap> {
+    const cap = CAPS.find(h => h.id === id)!;
+    this.messageService.add(`CapService: fetched cap id=${id}`);
+    return of(cap);
+  }
 }

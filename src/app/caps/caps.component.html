@@ -1,8 +1,8 @@
 <h2>My Caps</h2>
 <ul class="caps">
-  <li *ngFor="let cap of caps" [class.selected]="cap === selectedCap" (click)="onSelect(cap)">
-    <span class="badge">{{cap.id}}</span> {{cap.name}}
+  <li *ngFor="let cap of caps">
+      <a routerLink="/detail/{{cap.id}}">
+        <span class="badge">{{cap.id}}</span> {{cap.name}}
+      </a>
   </li>
 </ul>
-
-<app-cap-detail [cap]="selectedCap"></app-cap-detail>

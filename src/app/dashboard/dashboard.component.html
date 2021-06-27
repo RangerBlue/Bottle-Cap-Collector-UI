@@ -1,0 +1,7 @@
+<h2>Top Caps</h2>
+<div class="caps-menu">
+  <a *ngFor="let cap of caps"
+    routerLink="/detail/{{cap.id}}">
+    {{cap.name}}
+  </a>
+</div>
