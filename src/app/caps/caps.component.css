@@ -27,6 +27,10 @@
     background-color: #505050;
     color: white;
 }
+.heroes li:active {
+    background-color: #525252;
+    color: #fafafa;
+  }
 .caps li.selected:active {
     background-color: black;
     color: white;

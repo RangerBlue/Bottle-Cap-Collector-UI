@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cap } from '../cap';
-import { CAPS } from '../mock-caps';
+import { CapService } from '../cap.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-caps',
@@ -9,21 +10,23 @@ import { CAPS } from '../mock-caps';
 })
 export class CapsComponent implements OnInit {
 
-  cap: Cap = {
-    id: 1,
-    name: "Perla"
-  }
-
-  caps = CAPS;
+  caps: Cap[] = [];
 
   selectedCap?: Cap;
+
+  constructor(private capService: CapService, private messageService: MessageService) { }
+
   onSelect(cap: Cap): void {
     this.selectedCap = cap;
+    this.messageService.add(`CapsComponent: Selected cap id=${cap.id}`);
   }
 
-  constructor() { }
-
   ngOnInit(): void {
+    this.getCaps();
+  }
+
+  getCaps(): void {
+    this.capService.getCaps().subscribe(caps => this.caps = caps);
   }
 
 }
